@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
     padding: 20px;
     background-color: #fff;
@@ -55,17 +55,20 @@ body {
     color: green;
 }
 
+/* Container-part2 styling with increased width and height */
 .container-part2 {
     width: 100%;
-    min-height: 300px;
+    min-height: 200px;
     background-color: #f9f9f9;
     padding: 15px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
+/* Message alignment and styling */
 .bot-messages,
 .user-messages {
     display: flex;
@@ -78,19 +81,53 @@ body {
     color: #333;
 }
 
+/* Bot messages aligned to the left */
 .bot-messages {
     background-color: #e1e4e8;
     justify-content: flex-start;
-    align-self: flex-start; 
+    align-self: flex-start; /* Aligns message to the left side */
 }
 
+/* User messages aligned to the right */
 .user-messages {
     background-color: #cce5ff;
     justify-content: flex-end;
-    align-self: flex-end;
+    align-self: flex-end; /* Aligns message to the right side */
 }
 
 .bot-messages span:first-child,
 .user-messages span:first-child {
     font-weight: bold;
+}
+
+/* Input area styling */
+.input-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.input-text {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+}
+
+.input-btn .btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-btn .btn-primary:hover {
+    background-color: #0056b3;
 }
