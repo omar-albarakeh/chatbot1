@@ -55,8 +55,7 @@ body {
     color: green;
 }
 
-/* Container-part2 styling with increased width and height */
-.container-part2 {
+.chat-container {
     width: 100%;
     min-height: 200px;
     background-color: #f9f9f9;
@@ -68,7 +67,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Message alignment and styling */
 .bot-messages,
 .user-messages {
     display: flex;
@@ -81,18 +79,16 @@ body {
     color: #333;
 }
 
-/* Bot messages aligned to the left */
 .bot-messages {
     background-color: #e1e4e8;
     justify-content: flex-start;
-    align-self: flex-start; /* Aligns message to the left side */
+    align-self: flex-start; 
 }
 
-/* User messages aligned to the right */
 .user-messages {
     background-color: #cce5ff;
     justify-content: flex-end;
-    align-self: flex-end; /* Aligns message to the right side */
+    align-self: flex-end;
 }
 
 .bot-messages span:first-child,
@@ -100,7 +96,6 @@ body {
     font-weight: bold;
 }
 
-/* Input area styling */
 .input-group {
     display: flex;
     width: 100%;
