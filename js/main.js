@@ -1,4 +1,3 @@
-
 const sendBtn = document.getElementById("btn-primary");
 const inputText = document.getElementById("input-text");
 const container = document.getElementById("container");
@@ -13,6 +12,7 @@ inputText.addEventListener('input', toggleButtonState);
 const scrollToBottom = () => {
     container.scrollTop = container.scrollHeight;
 };
+
 function userMessage(messageText) {
     let userMessagesDiv = document.createElement('div');
     userMessagesDiv.classList.add('user-messages');
@@ -36,20 +36,36 @@ function chatBotMessage(messageText) {
         }
     );
     container.appendChild(messageElement);
-     scrollToBottom();
+    scrollToBottom();
 }
-setTimeout(function(){
-chatBotMessage("Hi!!");
-},1000);
 
+setTimeout(function() {
+    chatBotMessage("Hi!!");
+}, 1000);
 
+const sendMessageToServer = (messageText) => {
+    fetch('chatbot.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageText })
+    })
+    .then(response => response.json())
+    .then(data => {
+        let botReply = data.choices[0].message.content;
+        chatBotMessage(botReply);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        chatBotMessage("Sorry, there was an error processing your request.");
+    });
+};
 
 sendBtn.addEventListener('click', () => {
     let messageText = inputText.value.trim();
     if (messageText) {
-        userMessage(messageText); 
-        chatBotMessage("Got your message!"); 
-        inputText.value = ''; 
+        userMessage(messageText);
+        sendMessageToServer(messageText);
+        inputText.value = '';
         toggleButtonState();  
     }
 });
