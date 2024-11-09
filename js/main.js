@@ -29,8 +29,10 @@ function chatBotMessage(messageText) {
      scrollToBottom();
 }
 
-
+setTimeout(function(){
 chatBotMessage("Hi from the chatbot!");
+},1000);
+
 
 
 sendBtn.addEventListener('click', () => {
