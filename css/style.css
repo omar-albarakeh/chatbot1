@@ -13,40 +13,49 @@ body {
     background-color: #f3f4f6;
 }
 
+
 .container {
     max-width: 400px;
+    max-height: 550px;
     width: 100%;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    overflow: hidden;
 }
+
 
 .text-center {
     text-align: center;
     font-size: 1.5em;
     color: #333;
-    margin-bottom: 20px;
 }
+
 
 .media-body {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
 }
 
 .image-media {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    object-fit: cover; 
+}
+
+.status {
+    color: #333;
 }
 
 .status h5 {
-    margin: 0;
     font-size: 1.2em;
-    color: #333;
+    margin: 0;
 }
 
 .status span {
@@ -55,16 +64,17 @@ body {
     color: green;
 }
 
+
 .chat-container {
-    width: 100%;
-    min-height: 200px;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 400px;
+    padding-right: 10px;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
 }
 
 .bot-messages,
@@ -79,17 +89,15 @@ body {
     color: #333;
 }
 
+
 .bot-messages {
     background-color: #e1e4e8;
-    justify-content: flex-start;
     align-self: flex-start; 
 }
 
 .user-messages {
     background-color: #cce5ff;
-    justify-content: flex-end;
-    align-self: flex-end;
-}
+    align-self: flex-end; }
 
 .bot-messages span:first-child,
 .user-messages span:first-child {
@@ -98,7 +106,6 @@ body {
 
 .input-group {
     display: flex;
-    width: 100%;
     gap: 10px;
     padding-top: 10px;
     border-top: 1px solid #ddd;
@@ -110,6 +117,12 @@ body {
     border-radius: 6px;
     border: 1px solid #ddd;
     font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .input-btn .btn-primary {
@@ -120,9 +133,18 @@ body {
     color: #fff;
     font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .input-btn .btn-primary:hover {
     background-color: #0056b3;
+}
+
+.input-btn .btn-primary:active {
+    transform: scale(0.98); 
+}
+
+.input-btn .btn-primary:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
