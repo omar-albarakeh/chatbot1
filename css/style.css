@@ -20,6 +20,7 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .text-center {
@@ -54,23 +55,42 @@ body {
     color: green;
 }
 
-#container {
+.container-part2 {
+    width: 100%;
+    min-height: 200px;
     background-color: #f9f9f9;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.messages-containe {
+.bot-messages,
+.user-messages {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     padding: 8px 12px;
-    margin: 8px 0;
-    background-color: #e1e4e8;
     border-radius: 6px;
     font-size: 1em;
+    max-width: 70%;
     color: #333;
 }
 
-.messages-containe span:first-child {
+.bot-messages {
+    background-color: #e1e4e8;
+    justify-content: flex-start;
+    align-self: flex-start; 
+}
+
+.user-messages {
+    background-color: #cce5ff;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.bot-messages span:first-child,
+.user-messages span:first-child {
     font-weight: bold;
 }
