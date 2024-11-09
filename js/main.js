@@ -25,6 +25,16 @@ function chatBotMessage(messageText) {
     let messageElement = document.createElement('div');
     messageElement.classList.add('bot-messages');
     messageElement.innerHTML = `<span>Chat:</span><span>${messageText}</span>`;
+    messageElement.animate(
+        [
+            { opacity: 0 },
+            { opacity: 1 },
+        ],
+        {
+            duration: 500,
+            easing: 'ease-in',
+        }
+    );
     container.appendChild(messageElement);
      scrollToBottom();
 }
