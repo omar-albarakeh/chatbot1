@@ -10,12 +10,15 @@ const toggleButtonState = () => {
 toggleButtonState();
 inputText.addEventListener('input', toggleButtonState);
 
-
+const scrollToBottom = () => {
+    container.scrollTop = container.scrollHeight;
+};
 function userMessage(messageText) {
     let userMessagesDiv = document.createElement('div');
     userMessagesDiv.classList.add('user-messages');
     userMessagesDiv.innerHTML = `<span>You:</span><span>${messageText}</span>`;
-    container.appendChild(userMessagesDiv);
+    container.appendChild(userMessagesDiv); 
+    scrollToBottom();
 }
 
 function chatBotMessage(messageText) {
@@ -23,6 +26,7 @@ function chatBotMessage(messageText) {
     messageElement.classList.add('bot-messages');
     messageElement.innerHTML = `<span>Chat:</span><span>${messageText}</span>`;
     container.appendChild(messageElement);
+     scrollToBottom();
 }
 
 
