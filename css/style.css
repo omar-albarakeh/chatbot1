@@ -7,34 +7,70 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
 }
 
 .container {
-    text-align: center;
-    height: 500px;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.media {
+.text-center {
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.media-body {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .image-media {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 
 .status h5 {
     margin: 0;
     font-size: 1.2em;
+    color: #333;
 }
 
 .status span {
     display: block;
     font-size: 0.9em;
     color: green;
+}
+
+#container {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.messages-containe {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin: 8px 0;
+    background-color: #e1e4e8;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #333;
+}
+
+.messages-containe span:first-child {
+    font-weight: bold;
 }
