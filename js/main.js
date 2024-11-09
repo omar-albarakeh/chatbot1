@@ -38,9 +38,8 @@ function chatBotMessage(messageText) {
     container.appendChild(messageElement);
      scrollToBottom();
 }
-
 setTimeout(function(){
-chatBotMessage("Hi from the chatbot!");
+chatBotMessage("Hi!!");
 },1000);
 
 
