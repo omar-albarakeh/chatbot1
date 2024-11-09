@@ -1,33 +1,40 @@
 
-const send_btn = document.getElementById("btn-primary");
-const input_text = document.getElementById("input-text");
-const chat_container = document.getElementById("container");
+const sendBtn = document.getElementById("btn-primary");
+const inputText = document.getElementById("input-text");
+const container = document.getElementById("container");
+
+const toggleButtonState = () => {
+    sendBtn.disabled = !inputText.value.trim();
+};
+
+toggleButtonState();
+inputText.addEventListener('input', toggleButtonState);
+
 
 function userMessage(messageText) {
-    let messageElement = document.createElement('div');
-    messageElement.classList.add('user-messages');
-    messageElement.innerHTML = '<span>You:</span>' +
-                               '<span>' + messageText + '</span>';
-    chat_container.appendChild(messageElement); 
-    input_text.value = ""; 
+    let userMessagesDiv = document.createElement('div');
+    userMessagesDiv.classList.add('user-messages');
+    userMessagesDiv.innerHTML = `<span>You:</span><span>${messageText}</span>`;
+    container.appendChild(userMessagesDiv);
 }
-
 
 function chatBotMessage(messageText) {
     let messageElement = document.createElement('div');
     messageElement.classList.add('bot-messages');
-    messageElement.innerHTML = '<span>Chat:</span>' +
-                               '<span>' + messageText + '</span>';
-    chat_container.appendChild(messageElement); 
-    input_text.value = ""; 
+    messageElement.innerHTML = `<span>Chat:</span><span>${messageText}</span>`;
+    container.appendChild(messageElement);
 }
 
 
-chatBotMessage("hi from chat bot");
+chatBotMessage("Hi from the chatbot!");
 
-send_btn.addEventListener('click', () => {
-    let messageText = input_text.value.trim();
+
+sendBtn.addEventListener('click', () => {
+    let messageText = inputText.value.trim();
     if (messageText) {
-        userMessage(messageText);
+        userMessage(messageText); 
+        chatBotMessage("Got your message!"); 
+        inputText.value = ''; 
+        toggleButtonState();  
     }
 });
