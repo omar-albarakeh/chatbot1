@@ -1,6 +1,7 @@
 const sendBtn = document.getElementById("btn-primary");
 const inputText = document.getElementById("input-text");
 const container = document.getElementById("container");
+const historyPanel = document.getElementById("history-panel");
 
 const toggleButtonState = () => {
     sendBtn.disabled = !inputText.value.trim();
@@ -8,6 +9,7 @@ const toggleButtonState = () => {
 
 toggleButtonState();
 inputText.addEventListener('input', toggleButtonState);
+
 
 const scrollToBottom = () => {
     container.scrollTop = container.scrollHeight;
@@ -18,6 +20,7 @@ function userMessage(messageText) {
     userMessagesDiv.classList.add('user-messages');
     userMessagesDiv.innerHTML = `<span>You:</span><span>${messageText}</span>`;
     container.appendChild(userMessagesDiv); 
+    addMessageToHistory("You", messageText);
     scrollToBottom();
 }
 
@@ -36,10 +39,11 @@ function chatBotMessage(messageText) {
         }
     );
     container.appendChild(messageElement);
+    addMessageToHistory("Chatbot", messageText);
     scrollToBottom();
 }
 
-setTimeout(function() {
+setTimeout(() => {
     chatBotMessage("Hi!!");
 }, 1000);
 
@@ -69,3 +73,11 @@ sendBtn.addEventListener('click', () => {
         toggleButtonState();  
     }
 });
+
+const addMessageToHistory = (sender, messageText) => {
+    let historyEntry = document.createElement('div');
+    historyEntry.classList.add('history-entry');
+    historyEntry.innerHTML = `<strong>${sender}:</strong> ${messageText}`;
+    historyPanel.appendChild(historyEntry);
+    historyPanel.scrollTop = historyPanel.scrollHeight;
+};
