@@ -8,13 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="history-panel" id="history-panel">
+        <aside class="history-panel">
             <h3>Chat History</h3>
-        </div>
+            <div id="saved-responses" class="saved-responses">
+                <h4>Responses</h4>
+            </div>
+        </aside>
 
-        <div class="chat-section">
+        <main class="chat-section">
             <h1 class="text-center">Awesome Chatbot App</h1>
-            
             <div class="media-body">
                 <img src="../assets/download.jpeg" class="image-media" alt="Chatbot Image">
                 <div class="status">
@@ -22,16 +24,12 @@
                     <span>Online</span>
                 </div>
             </div>
-
-            <div class="chat-container" id="container"></div>
-
+            <div class="chat-container" id="chat-container"></div>
             <div class="input-group">
                 <input type="text" class="input-text" id="input-text" placeholder="Enter your message">
-                <div class="input-btn">
-                    <button class="btn-primary" id="btn-primary">SEND</button>
-                </div>
+                <button class="btn-primary" id="send-btn">SEND</button>
             </div>
-        </div>
+        </main>
     </div>
 
     <script src="../js/main.js"></script>
