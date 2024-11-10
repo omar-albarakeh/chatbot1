@@ -39,7 +39,7 @@ function chatBotMessage(messageText) {
 }
 
 setTimeout(() => {
-    chatBotMessage("Hi!! How can I help you with movies today?");
+    chatBotMessage("Hi ! How can I help you with movies today?");
 }, 1000);
 
 const sendMessageToServer = (messageText) => {
